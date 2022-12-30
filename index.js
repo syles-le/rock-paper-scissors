@@ -40,9 +40,16 @@ function playRound(playerSelection, computerSelection) {
     };
 };
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let computerSelection;
+    let counter = 0;
+
+    for (let i = 0; i < 5; i++) {
+        computerSelection = getComputerChoice();
+        playerSelection = prompt("Choose your weapon: ").toLowerCase();
+        counter += playRound(playerSelection, computerSelection);
+    }
+}
 
 
 
