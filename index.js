@@ -49,7 +49,17 @@ function game() {
         playerSelection = prompt("Choose your weapon: ").toLowerCase();
         counter += playRound(playerSelection, computerSelection);
     }
+
+    if (counter < 0) {
+        return "You Lost the game!";
+    } else if (counter > 0) {
+        return "You Won the game!";
+    } else {
+        return "It's a Draw"
+    }
 }
+
+console.log(game());
 
 
 
