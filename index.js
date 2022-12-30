@@ -11,7 +11,7 @@ const choice = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
     let randomIndex = Math.floor(Math.random() * 3);
-    let computerChoice = play[randomIndex];
+    let computerChoice = choice[randomIndex];
     return computerChoice
 };
 
@@ -40,7 +40,9 @@ function playRound(playerSelection, computerSelection) {
     };
 };
 
-
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
 
 
 
