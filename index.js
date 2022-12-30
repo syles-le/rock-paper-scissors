@@ -28,8 +28,19 @@ function playRound(playerSelection, computerSelection) {
     } else if (computerSelection == "scissors" && playerSelection == "paper") {
         console.log("Scissors beats paper - You Lost!");
         return - 1;
-    } 
-}
+    } else if (computerSelection == "rock" && playerSelection == "paper") {
+        console.log("Paper beats rock - You Won!");
+        return 1;
+    } else if (computerSelection == "paper" && playerSelection == "scissors") {
+        console.log("Scissors beats paper - You Won!");
+        return 1
+    } else if (computerSelection == "scissors" && playerSelection == "rock") {
+        console.log("Rock beats scissors - You Won!");
+        return 1;
+    };
+};
+
+
 
 
 
