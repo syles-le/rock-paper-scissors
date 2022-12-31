@@ -4,15 +4,17 @@
 //Loop through 5 rounds, declare winner
 
 
-
+//This is the array computer will pull a random choice from
 const choice = ["rock", "paper", "scissors"];
 
+//This function creates the Computer's choice.
 function getComputerChoice() {
     let randomIndex = Math.floor(Math.random() * 3);
     let computerChoice = choice[randomIndex];
     return computerChoice;
 }
 
+//This function simulates a round and all possibilities.
 function playRound(playerSelection, computerSelection) {
     if (computerSelection == playerSelection) {
         console.log("It's a tie!");
@@ -38,6 +40,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+//This function allows the player to play 5 rounds, an entire game
 function game() {
     let computerSelection;
     let counter = 0;
