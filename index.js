@@ -1,67 +1,60 @@
-//Create array of choices to pull from randomly for computer
-//Create function to play 1 round
-//Keep track of player/computer score, increment and decrement as needed
-//Loop through 5 rounds, declare winner
+const playerText = document.querySelector("#playerText");
+const computerText = document.querySelector("#computerText");
+const resultText = document.querySelector("#resultText");
+const choiceBtns = document.querySelectorAll(".choiceBtn");
+let player;
+let computer;
+let result;
+
+choiceBtns.forEach(button => button.addEventListener("click", () => {
+
+    player = button.textContent;
+    computerTurn();
+    playerText.textContent = `Player: ${player}` ;
+    computerText.textContent = `Computer: ${computer}`;
+    resultText.textContent = checkWinner()
+}))
 
 
-//This is the array computer will pull a random choice from
-const choice = ["rock", "paper", "scissors"];
+function computerTurn() {
+    const randNum = Math.floor(Math.random() * 3) + 1;
 
-//This function creates the Computer's choice.
-function getComputerChoice() {
-    let randomIndex = Math.floor(Math.random() * 3);
-    let computerChoice = choice[randomIndex];
-    return computerChoice;
-}
-
-//This function simulates a round and all possibilities.
-function playRound(playerSelection, computerSelection) {
-    if (computerSelection == playerSelection) {
-        console.log("It's a tie!");
-        return 0;
-    } else if (computerSelection == "rock" && playerSelection == "scissors") {
-        console.log("Scissors loses to rock - You Lost!");
-        return -1;
-    } else if (computerSelection == "paper" && playerSelection == "rock") {
-        console.log("Rock loses to paper - You Lost!");
-        return -1;
-    } else if (computerSelection == "scissors" && playerSelection == "paper") {
-        console.log("Paper loses to scissors - You Lost!");
-        return -1;
-    } else if (computerSelection == "rock" && playerSelection == "paper") {
-        console.log("Paper beats rock - You Won!");
-        return 1;
-    } else if (computerSelection == "paper" && playerSelection == "scissors") {
-        console.log("Scissors beats paper - You Won!");
-        return 1;
-    } else if (computerSelection == "scissors" && playerSelection == "rock") {
-        console.log("Rock beats scissors - You Won!");
-        return 1;
+    switch(randNum) {
+        case 1: 
+            computer = "ROCK";
+            break;
+        case 2: 
+            computer = "PAPER"
+            break;
+        case 3:
+            computer = "SCISSORS"
     }
 }
 
-//This function allows the player to play 5 rounds, an entire game
-function game() {
-    let computerSelection;
-    let counter = 0;
-
-    for (let i = 0; i < 5; i++) {
-        computerSelection = getComputerChoice();
-        playerSelection = prompt("Choose your weapon: ").toLowerCase();
-        counter += playRound(playerSelection, computerSelection);
+function checkWinner() {
+    if(player == computer) {
+        return "Draw!";
+    }
+    else if(computer == "ROCK" && player == "SCISSORS") {
+        return "You Lose!";
+    }
+    else if(computer == "PAPER" && player == "ROCK") {
+        return "You Lose!";
+    }
+    else if(computer == "SCISSORS" && player == "PAPER") {
+        return "You Lose!"
+    }
+    else if(computer == "ROCK" && player == "PAPER") {
+        return "You Win!"
+    }
+    else if(computer == "PAPER" && player == "SCISSORS") {
+        return "You Win!"
+    }
+    else if(computer == "SCISSORS" && player == "ROCK") {
+        return "You Win!"
     }
 
-
-    if (counter < 0) {
-        return "Boo-hoo! You Lost";
-    } else if (counter > 0) {
-        return "Yay! You Won!";
-    } else {
-        return "It's a tie!"
-    }
 }
-
-console.log(game())
 
 
 

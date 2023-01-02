@@ -1,0 +1,40 @@
+body {
+    background: black;
+    color: white;
+    font-family: sans-serif
+}
+
+.pc {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+#resultText {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+    gap: 70px;
+    flex-wrap: wrap
+}
+
+button {
+    border-style: none;
+    border-radius: 12px;
+    padding: 3rem;
+    background: linear-gradient(135deg, #1DE3F4, #F7B4B7);
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: translate(15px, -15px);
+    transition: all 0.2s;
+    box-shadow: -10px 12px 5px white;
+}
+
